@@ -1,0 +1,183 @@
+ <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!DOCTYPE html
+	PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US" xml:lang="en-US">
+<head>
+<title>IOT Demo</title>
+<link rel="stylesheet" type="text/css" href="bootstrap.min.css" />
+<script src="bootstrap.js" type="text/javascript"></script>
+<script src="jquery.js" type="text/javascript"></script>
+<script src="myIot.js" type="text/javascript"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+</head>
+<body>
+<body style="padding-top:20px;background:#B0C4DE">
+
+<div class="container">
+
+<div class="jumbotron" style="background:#20B2AA; height:150px;padding:5px">     
+<table > <tr>
+           <td style="float:right;clear:left">
+            
+            <img alt="pics" src="shivaprasad.small.jpg" height="130px" width="120px"  style="float:right">
+          </td>
+          <td>
+            <h3 style="color:#FFFFF0;"><a href="#" style="color:#FFFFF0;">&nbsp&nbspIOT Demo Project  </a></h1>
+            <font style="padding:1px;margin:8px;color:#991A42;text-shadow:3px;font-size:small">&nbsp&nbspUsing Bootstrap JQuery</font><br>
+&nbsp&nbsp <font size="2"><u><b>Contact: nnsprasad@gmail.com</b></u></font>
+          </td>
+
+
+          </tr>
+          </table>
+		  
+</div>   
+ <table border="2px"> 
+   <tr>
+    <td>   
+ <div class="row">
+  <div class="col-sm-9">
+  Led 1:
+  </div>
+  </div>
+ 
+	<div class="row">
+		<div class="col-4 col-sm-2">On  <input type="radio" id="led_1_on" name="led_1" value="1"   onMouseOver="style.cursor='hand'"> </div>
+		<div class="col-4 col-sm-2">Off <input type="radio" id="led_1_off" name="led_1" value="0"  onMouseOver="style.cursor='hand'"></div>
+		<div class="col-4 col-sm-2"><input type="button" id="led_1_enter" name="led_1_enter" value="Click" onClick="javascript:setLed('1');return false;"  
+			onMouseOver="style.cursor='hand'">
+		</div>
+		<div class="col-4 col-sm-2" ><div style="visibility:hidden;" id="led_1_disp">Message Display</div> </div>
+	</div>
+	<br>
+  <div class="row">
+  <div class="col-sm-9">
+  Led 2:
+  </div>
+  </div>
+	<div class="row">
+		<div class="col-4 col-sm-2">On  <input type="radio" id="led_2_on" name="led_2" value="1"   onMouseOver="style.cursor='hand'"> </div>
+		<div class="col-4 col-sm-2">Off <input type="radio" id="led_2_off" name="led_2" value="0"  onMouseOver="style.cursor='hand'"></div>
+		<div class="col-4 col-sm-2"><input type="button" id="led_2_enter" name="led_2_enter" value="Click" onClick="javascript:setLed('2');return false;"  
+			onMouseOver="style.cursor='hand'">
+		</div>
+		<div class="col-4 col-sm-2" ><div style="visibility:hidden;" id="led_2_disp">Message Display</div> </div>
+	</div>
+	<br>
+	 <div class="row">
+  <div class="col-sm-9">
+  Led 3:
+  </div>
+  </div>
+	<div class="row">
+		<div class="col-4 col-sm-2">On  <input type="radio" id="led_3_on" name="led_3" value="1"   onMouseOver="style.cursor='hand'"> </div>
+		<div class="col-4 col-sm-2">Off <input type="radio" id="led_3_off" name="led_3" value="0"  onMouseOver="style.cursor='hand'"></div>
+		<div class="col-4 col-sm-2"><input type="button" id="led_3_enter" name="led_3_enter" value="Click" onClick="javascript:setLed('3');return false;"  
+			onMouseOver="style.cursor='hand'">
+		</div>
+		<div class="col-4 col-sm-2" ><div style="visibility:hidden;" id="led_3_disp">Message Display</div> </div>
+	</div>
+   </td>
+  
+  <td>   
+ <div class="row">
+  <div class="col-sm-9">
+  Fan 1:
+  </div>
+  </div>
+ 
+	<div class="row">
+		<div class="col-4 col-sm-2">On  <input type="radio" id="fan_1_on" name="fan_1" value="1"   onMouseOver="style.cursor='hand'"> </div>
+		<div class="col-4 col-sm-2">Off <input type="radio" id="fan_1_off" name="fan_1" value="0"  onMouseOver="style.cursor='hand'"></div>
+		<div class="col-4 col-sm-2"><input type="button" id="fan_1_enter" name="fan_1_enter" value="Click" onClick="javascript:setFan('1');return false;"  
+			onMouseOver="style.cursor='hand'">
+		</div>
+		<div class="col-4 col-sm-2" ><div style="visibility:hidden;" id="fan_1_disp">Message Display</div> </div>
+	</div>
+	<br>
+  <div class="row">
+  <div class="col-sm-6">
+  Fan 2:
+  </div>
+  </div>
+	<div class="row">
+		<div class="col-4 col-sm-2">On  <input type="radio" id="fan_2_on" name="fan_2" value="1"   onMouseOver="style.cursor='hand'"> </div>
+		<div class="col-4 col-sm-2">Off <input type="radio" id="fan_2_off" name="fan_2" value="0"  onMouseOver="style.cursor='hand'"></div>
+		<div class="col-4 col-sm-2"><input type="button" id="fan_2_enter" name="fan_2_enter" value="Click" onClick="javascript:setFan('2');return false;"  
+			onMouseOver="style.cursor='hand'">
+		</div>
+		<div class="col-4 col-sm-2" ><div style="visibility:hidden;" id="fan_2_disp">Message Display</div> </div>
+	</div>
+	<br>
+	 <div class="row">
+  <div class="col-sm-6">
+  Fan 3:
+  </div>
+  </div>
+	<div class="row">
+		<div class="col-4 col-sm-2">On  <input type="radio" id="fan_3_on" name="fan_3" value="1"   onMouseOver="style.cursor='hand'"> </div>
+		<div class="col-4 col-sm-2">Off <input type="radio" id="fan_3_off" name="fan_3" value="0"  onMouseOver="style.cursor='hand'"></div>
+		<div class="col-4 col-sm-2"><input type="button" id="fan_3_enter" name="fan_3_enter" value="Click" onClick="javascript:setFan('3');return false;"  
+			onMouseOver="style.cursor='hand'">
+		</div>
+		<div class="col-4 col-sm-2" ><div style="visibility:hidden;" id="fan_3_disp">Message Display</div> </div>
+	</div>
+   </td>
+  
+  <td>   
+ <div class="row">
+  <div class="col-sm-6">
+  Motor 1:
+  </div>
+  </div>
+ 
+	<div class="row">
+		<div class="col-4 col-sm-2">On  <input type="radio" id="motor_1_on" name="motor_1" value="1"   onMouseOver="style.cursor='hand'"> </div>
+		<div class="col-4 col-sm-2">Off <input type="radio" id="motor_1_off" name="motor_1" value="0"  onMouseOver="style.cursor='hand'"></div>
+		<div class="col-4 col-sm-2"><input type="button" id="motor_1_enter" name="motor_1_enter" value="Click" onClick="javascript:setMotor('1');return false;"  
+			onMouseOver="style.cursor='hand'">
+		</div>
+		<div class="col-4 col-sm-2" ><div style="visibility:hidden;" id="motor_1_disp">Message Display</div> </div>
+	</div>
+	<br>
+  <div class="row">
+  <div class="col-sm-6">
+  Motor 2:
+  </div>
+  </div>
+	<div class="row">
+		<div class="col-4 col-sm-2">On  <input type="radio" id="motor_2_on" name="motor_2" value="1"   onMouseOver="style.cursor='hand'"> </div>
+		<div class="col-4 col-sm-2">Off <input type="radio" id="motor_2_off" name="motor_2" value="0"  onMouseOver="style.cursor='hand'"></div>
+		<div class="col-4 col-sm-2"><input type="button" id="motor_2_enter" name="motor_2_enter" value="Click" onClick="javascript:setMotor('2');return false;"  
+			onMouseOver="style.cursor='hand'">
+		</div>
+		<div class="col-4 col-sm-2" ><div style="visibility:hidden;" id="motor_2_disp">Message Display</div> </div>
+	</div>
+	<br>
+	 <div class="row">
+  <div class="col-sm-6">
+  Motor 3:
+  </div>
+  </div>
+	<div class="row">
+		<div class="col-4 col-sm-2">On  <input type="radio" id="motor_3_on" name="motor_3" value="1"   onMouseOver="style.cursor='hand'"> </div>
+		<div class="col-4 col-sm-2">Off <input type="radio" id="motor_3_off" name="motor_3" value="0"  onMouseOver="style.cursor='hand'"></div>
+		<div class="col-4 col-sm-2"><input type="button" id="motor_3_enter" name="motor_3_enter" value="Click" onClick="javascript:setMotor('3');return false;"  
+			onMouseOver="style.cursor='hand'">
+		</div>
+		<div class="col-4 col-sm-2" ><div style="visibility:hidden;" id="motor_3_disp">Message Display</div> </div>
+	</div>
+   </td>
+  
+  
+  </tr>
+  
+ </table> 
+	
+</div>
+</div>
+</body>
+</html>
