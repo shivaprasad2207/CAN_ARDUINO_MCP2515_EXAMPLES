@@ -1,0 +1,14 @@
+---
+description: Add support for ESP WROOM 32 Module
+fullname: board.zerynth.cvm_espwroom32
+info:
+    board: ESP WROOM 32
+    chip_manufacturer: Espressif
+    device: esp32
+    family_type: Xtensa lx6
+keywords:
+- espressif
+- esp32
+- board
+title: ESP WROOM 32 Support Package
+...

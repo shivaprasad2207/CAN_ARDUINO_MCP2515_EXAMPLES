@@ -1,0 +1,63 @@
+{
+    "architecture": "xtensa-lx6",
+    "board_producer": "Espressif",
+    "cc": "xtensalx6gcc",
+    "chip_manifacturer": "Espressif",
+    "chip_model": "esp32",
+    "classes": [
+        "esp wroom 32.esp wroom 32Device"
+    ],
+    "connection": {
+        "baudrate": 115200,
+        "bytesize": 8,
+        "dsrdtr": false,
+        "parity": "n",
+        "rtscts": false,
+        "stopbits": 1
+    },
+    "customized": true,
+    "family_name": "esp32",
+    "family_type": "xtensa-lx6",
+    "flash": 16384,
+    "flash_erasable": true,
+    "gccopts": {
+        "arch": [],
+        "cflags": [
+            "-Os",
+            "-Wpointer-arith",
+            "-Wno-implicit-function-declaration",
+            "-Wl,-EL",
+            "-fno-inline-functions",
+            "-nostdlib",
+            "-mlongcalls",
+            "-mtext-section-literals",
+            "-falign-functions=4",
+            "-ffunction-sections",
+            "-fdata-sections",
+            "-DICACHE_FLASH",
+            "-std=c99"
+        ],
+        "defs": [
+            "BYTECODE_ACCESS_ALIGNED_4",
+            "VM_DEFAULT_THREAD_SIZE=4096"
+        ]
+    },
+    "has_alter_ego": false,
+    "jtag_class": "esp wroom 32Device",
+    "manual_reset": 0,
+    "name": "esp wroom 32",
+    "original_target": "cvm_espwroom32",
+    "pids": [],
+    "preferred_baud": 115200,
+    "ram": 200,
+    "relocator": "xtensalx6",
+    "reset_after_uplink": true,
+    "reset_time": 4000,
+    "rodata_in_ram": true,
+    "target": "esp wroom 32",
+    "type": "board",
+    "uplink_reset": "reset",
+    "vids": [],
+    "virtualizable": "esp wroom 32Device",
+    "vm_chunk": 1024
+}
