@@ -1,0 +1,240 @@
+# Custom VM Template for ESP-WROOM32
+#
+# This template specifies parameters for using Zerynth with PCBs based on the ESP32 WROOM module.
+# By changing the settings below, a custom GPIO routing, the peripheral list and many more details can be customized
+#
+# The format of the template is baed on YAML 1.2
+
+
+# *short_name* will be used to identify the custom VM.
+# This field is automatically set by the ZTC upon custom VM creation
+# It must be at most 31 characters and must contain at most one underscore
+short_name: XXXX_short_name_XXXX
+# *layout* is set by the ZTC upon custom VM creation. Don't touch.
+layout: XXXX_short_name_XXXX
+# *cmacros* is a list of C macros that will be passed to the compiler
+# during the compilation of a Zerynth project. 
+# This section is prefilled with the correct values, but other can be added as needed.
+# The macro VM_IS_CUSTOM **MUST BE PRESENT**, else the custom VM will badly crash.
+cmacros:
+    - ESP32_VHAL
+    - ESP32_ETH_PHY_LAN8720
+    - VM_IS_CUSTOM
+# the *pinmap* section contains the list of physical pins with their Zerynth names.
+# For each pin three parameters must be specified:
+# - the Zerynth pin name: formed by adding a numeber suffix to a capital D (D0, D1,...).
+#   The specified pin name will be available for use in Zerynth programs.
+#   The order of pin names is not important, however we suggest to list them in order of increasing suffix.
+#   The pin name list must not have gaps otherwise it won't compile (e.g. can't have D0,D1,D5 without D3 and D4)
+# - the pin port: it must be a string specifying the microcontroller port for the pin. It can be one of PA,PB,PC,etc...
+#   for the ESP-WROOM32 it must be PA because there is a single GPIO port in the module
+# - the pin pad: it must be an integer number representing the microcontroller GPIO pad/index.
+#   for ESP-WROOM32 for example, GPIO0 is represented [ PA, 0 ] and GPIO16 as [ PA, 16 ]
+# NOTE: in ESP-WROOM32 pins from 6 to 10 are defined but can't be used because their are linked to the internal SPI flash.
+pinmap:
+    # Port, Pad 
+    D0:  [ PA,  0 ]
+    D1:  [ PA,  1 ]
+    D2:  [ PA,  2 ]
+    D3:  [ PA,  3 ]
+    D4:  [ PA,  4 ]
+    D5:  [ PA,  5 ]
+    D6:  [ PA,  6 ]
+    D7:  [ PA,  7 ]
+    D8:  [ PA,  8 ]
+    D9:  [ PA,  9 ]
+    D10: [ PA, 10 ]
+    D11: [ PA, 11 ]
+    D12: [ PA, 12 ]
+    D13: [ PA, 13 ]
+    D14: [ PA, 14 ]
+    D15: [ PA, 15 ]
+    D16: [ PA, 16 ]
+    D17: [ PA, 17 ]
+    D18: [ PA, 18 ]
+    D19: [ PA, 19 ]
+    D20: [ PA, 20 ]
+    D21: [ PA, 21 ]
+    D22: [ PA, 22 ]
+    D23: [ PA, 23 ]
+    D24: [ PA, 24 ]
+    D25: [ PA, 25 ]
+    D26: [ PA, 26 ]
+    D27: [ PA, 27 ]
+    D28: [ PA, 28 ]
+    D29: [ PA, 29 ]
+    D30: [ PA, 30 ]
+    D31: [ PA, 31 ]
+    D32: [ PA, 32 ]
+    D33: [ PA, 33 ]
+    D34: [ PA, 34 ]
+    D35: [ PA, 35 ]
+    D36: [ PA, 36 ]
+    D37: [ PA, 37 ]
+    D38: [ PA, 38 ]
+    D39: [ PA, 39 ]
+# the *pinclasses* section specifies additional functionalities for each physical pin in the *pinmap* section.
+# This section is composed of a dictionary where keys are "functional" pin names (e.g. A0, A1, RX0, SCL0, ...) representing a particular
+# pin function, and values are the pin parameters.
+# Here below the following pin classes can be found:
+# - Analog class: all functional pin names in this class begin with a capital A and are followed by an index. The analog pin parameters
+#   are specified in a list where the first item is the physical pin name associated with the analog pin, and the second item is the ADC channel
+#   used by the pin (this value must be derived from the Espressif hardware documentation). 
+# - SPI class: pins exposing a SPI functionality can have three different pin names prefix that defines the specific function in the SPI protocol: MOSI, MISO or SCLK (clock)
+#   Spi pins need a single item as parameter, namely the physical pin exposing the Spi functionality. Spi pins are grouped in triplets, with each triplet sharing
+#   the same pin index (e.g. MOSI0, MISO0, SCLK0 triplet specifies the pins used in the SPI peripheral)
+# - I2C pins need a single item as parameter, namely the physical pin exposing the I2C functionality. I2C pins are grouped in pairs, with each pair sharing
+#   the same pin index (e.g. SDA0, SCL0 pair specifies the data pin and clock pin used in the I2C peripheral)
+# - Serial pins need a single item as parameter, namely the physical pin exposing the serial functionality. Serial pins are grouped in pairs, with each pair
+#   sharing the same pin index (e.g. RX0, TX0 pair specifies the rx and tx pins used in the SERIAL peripheral)
+# - DAC pins need two items as parameter, namely the physical pin exposing the DAC functionality and the DAC channel for the pin (to be found in Espressif hardware documentation)
+# - PWM pins need a single item as parameter, namely the physical pin exposing the PWM functionality.
+# - BTN pins need a single item as parameter, namely the physical pin connected to the button.
+# - ICU pins are not available for the ESP-WROOM32 module yet
+# - LED pins need a single item as parameter, namely the physical pin connected to the led.
+#
+# All functional pin names in this section will be available in Zerynth programs.
+pinclasses:
+    # analog pins: [ pin name, ADC channel ]
+    A0: [ D32, 4, 0]
+    A1: [ D33, 5, 0]
+    A2: [ D34, 6, 0]
+    A3: [ D35, 7, 0]
+    A4: [ D36, 0, 0]
+    A5: [ D37, 1, 0]
+    A6: [ D38, 2, 0]
+    A7: [ D39, 3, 0]
+    A8: [ D25, 8, 1]
+    A9: [ D26, 9, 1]
+    A10: [ D27, 7, 1]
+    A11: [ D14, 6, 1]
+    A12: [ D12, 5, 1]
+    A13: [ D13, 4, 1]
+    A14: [ D4, 0, 1]
+    A15: [ D0, 1, 1]
+    A16: [ D2, 2, 1]
+    A17: [ D15, 3, 1]
+    # spi pins:
+    MOSI0: D13
+    MISO0: D12
+    SCLK0: D14
+    MOSI1: D23
+    MISO1: D19
+    SCLK1: D18
+    # i2c pins: 
+    SDA0: D25
+    SCL0: D26
+    SDA1: D16
+    SCL1: D17
+    SDA2: D18
+    SCL2: D19
+    # serial
+    RX0: D3
+    TX0: D1
+    RX1: D0
+    TX1: D25
+    RX2: D16
+    TX2: D17
+    # dac [ pin name, channel ]
+    DAC0: [ D25, 1 ]
+    DAC1: [ D26, 2 ]
+    # button
+    BTN0: D0
+    # pwm
+    PWM0: D0
+    PWM1: D1
+    PWM2: D2
+    PWM3: D3
+    PWM4: D4
+    PWM5: D5
+    PWM6: D6
+    PWM7: D7
+    PWM8: D8
+    PWM9: D9
+    PWM10: D10
+    PWM11: D11
+    PWM12: D12
+    PWM13: D13
+    PWM14: D14
+    PWM15: D15
+    PWM16: D16
+    PWM17: D17
+    PWM18: D18
+    PWM19: D19
+    PWM20: D20
+    PWM21: D21
+    PWM22: D22
+    PWM23: D23
+    PWM24: D24
+    PWM25: D25
+    PWM26: D26
+    PWM27: D27
+    PWM28: D28
+    PWM29: D29
+    PWM30: D30
+    PWM31: D31
+    PWM32: D32
+    PWM33: D33
+# the *peripherals* section contains the available peripherals and their details.
+# In particular the below configuration exposes the following  peripherals:
+#
+# - SERIAL0, SERIAL1 and SERIAL2 are three serial ports with the specified RX and TX pins. The parameter "hw" is needed
+#   to know which Serial port on the ESP-WROOM32 to use. hw is 1 for UART1, 2 for UART2 and 3 for UART3
+# - SPI0, SPI1 are two spi buses, using the specified pins, The hw parameter is 1 for HSPI and 2 for VSPI
+# - I2C0, I2C1, I2C2 are three i2c buses using the specified pins. The hw parameter is 1 for the i2c bus 1 and 2 for i2c bus 2.
+#   Notice that the same hw index can be assigned to multiple I2C peripherals (e.g I2C1 and I2C2), meaning that in Zerynth programs
+#   both I2C1 and I2C2 can be used, but obviously not at the same time.
+# - RTC0 and HTM0 are specified in the template with correct values and must not be changed.
+peripherals:
+    SERIAL0: 
+        hw: 1
+        rx: RX0
+        tx: TX0
+    SERIAL1:
+        hw: 2
+        rx: RX1
+        tx: TX1
+    SERIAL2:
+        hw: 3
+        rx: RX2
+        tx: TX2
+    SPI0:
+        hw: 1
+        mosi: MOSI0
+        miso: MISO0
+        sclk: SCLK0
+    SPI1:
+        hw: 2
+        mosi: MOSI1
+        miso: MISO1
+        sclk: SCLK1
+    I2C0:
+        hw: 1
+        sda: SDA0
+        scl: SCL0
+    I2C1:
+        hw: 2
+        sda: SDA1
+        scl: SCL1
+    I2C2:
+        hw: 2
+        sda: SDA2
+        scl: SCL2
+    RTC0:
+        hw: 1
+    HTM0:
+        hw: 1
+# the *device* section contains info for automatic device discovery.
+# Most of the parameters have the correct values and must not be changed.
+# The following parameters can be customized:
+# - manual_reset: 0 or 1. If 1 the ZTC will pause asking the user to reset the device during registration, virtualization and uplinking
+# - name: a string representing the human readable name of the custom device
+# - reset_time: the number of milliseconds to wait for the user to manually reset the custom device
+# 
+# Two parameters that are missing in this template are:
+# - vids: a list of uppercase hexadecimal numbers (not prefixed by 0x) representing the USB VID codes used for automatic discovery of the custom device
+# - pids: a list of uppercase hexadecimal numbers (not prefixed by 0x) representing the USB PID codes used for automatic discovery of the custom device
+#
+# vids and pids can be discovered by opening the terminal, typing the command "ztc device discover" and searching your device
+# vids and pids parameters make sense if the custom device has a usb-to-serial converter onboard linked to a serial port of the ESP-WROOM32
+#
