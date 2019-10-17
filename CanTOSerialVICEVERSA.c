@@ -23,6 +23,7 @@ int canLen = 0;
 byte canDataByte[8] = {0};
 unsigned char canDataRscv [8] = {0};
 unsigned long int canIDrscv = 0  ;
+unsigned char canLenRscv1;
 unsigned char canLenRscv = 8;
 char sendCanPocket[34] = {0};
 
@@ -85,7 +86,7 @@ void loop(){
          Serial.println(" Can Shell Prompt#>" );  
       } 
    }
-  delay(1000);
+  delay(100);
 }
 
 
@@ -100,10 +101,15 @@ void writeCanDataToSerial(){
 }
 
  void readCanDataFromCanBus(){ 
-    CAN0.readMsgBuf(&canIDrscv, &canLenRscv, canDataRscv,&canLenRscv);  
-    sprintf (sendCanPocket,":%d:%d:%d:%d:%d:%d:%d:%d:%d:%d:%d",canIDrscv,canLenRscv,canDataRscv[0],canDataRscv[1],
+    CAN0.readMsgBuf(&canIDrscv, &canLenRscv, canDataRscv,&canLenRscv1);  
+    /*
+    sprintf (sendCanPocket,":%d:%d:%d:%d:%d:%d:%d:%d:%d:%d:%d",canIDrscv,canLenRscv,canLenRscv1,canDataRscv[0],canDataRscv[1],
                                                             canDataRscv[2],canDataRscv[3],canDataRscv[4],canDataRscv[5],
                                                             canDataRscv[6],canDataRscv[7]
+                                                            );
+   */
+   sprintf (sendCanPocket,":%d:%d:%d:%d:%d:%d:%d:%d:%d:",canIDrscv,canDataRscv[0],canDataRscv[1],canDataRscv[2],
+                                                              canDataRscv[3],canDataRscv[4],canDataRscv[5],canDataRscv[6],canDataRscv[7]
                                                             );
  }
 
